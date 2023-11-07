@@ -6,22 +6,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首頁</title>
     <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/index.css">
 </head>
 
 <body>
     <nav>
-        <div class="pages">
-            <a class="active" href="/index.html">首頁</a>
-            <a href="/house.html">好宅</a>
+        <div class="logo">
+            <a href="/index.html">租客</a>
         </div>
-        <div>
-            <a href="/signIn.html">登出</a>
+        <div class="pages">
+            <a class="active" href="/index.html">Home</a>
+            <a href="/records.html">查詢紀錄</a>
+            <a href="/blacklist.html">黑名單清單</a>
         </div>
     </nav>
+    <div class="container">
+        <form>
+            <div class="form-group">
+                <label for="identity">身分證字號</label>
+                <input type="text" class="form-control" id="identity">
+            </div>
+            <div class="form-group">
+                <label for="name">姓名</label>
+                <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+                <label for="birthday">生日</label>
+                <input type="date" class="form-control" id="birthday">
+            </div>
+            <div class="searchBtnWrap">
+                <button class="btn btn-primary">查詢</button>
+            </div>
+
+            <h1>上传和裁剪图像</h1>
+            <input type="file" id="imageInput" accept="image/*">
+        </form>
+    </div>
+
+    <div class="modal fade" id="imageCropModal" tabindex="-1" role="dialog" aria-labelledby="imageCropModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <img id="imagePreview" class="preview" src="" alt="预览图像">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" id="cropButton">裁剪</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="assets/libs/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.js"></script>
     <script src="assets/js/script.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 
 </html>

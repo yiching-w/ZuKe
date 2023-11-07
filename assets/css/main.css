@@ -1,38 +1,46 @@
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #79836c;
-  --bs-btn-border-color: #79836c;
+  --bs-btn-bg: #CD7363;
+  --bs-btn-border-color: #CD7363;
   --bs-btn-hover-color: #fff;
-  --bs-btn-hover-bg: #535c48;
-  --bs-btn-hover-border-color: #535c48;
+  --bs-btn-hover-bg: #b45949;
+  --bs-btn-hover-border-color: #b45949;
   --bs-btn-focus-shadow-rgb: 49, 132, 253;
   --bs-btn-active-color: #fff;
-  --bs-btn-active-bg: #535c48;
-  --bs-btn-active-border-color: #535c48;
+  --bs-btn-active-bg: #b45949;
+  --bs-btn-active-border-color: #b45949;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #79836c;
-  --bs-btn-disabled-border-color: #79836c;
+  --bs-btn-disabled-bg: #CD7363;
+  --bs-btn-disabled-border-color: #CD7363;
   color: #f9f1df;
-  font-size: 1.1rem;
-  font-weight: bold;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+body {
+  background: #fffbf1;
+}
+
+::selection {
+  background-color: #e3d0c4;
 }
 
 .form-check-input:checked {
-  background-color: #79836c;
-  border-color: #79836c;
+  background-color: #CD7363;
+  border-color: #CD7363;
 }
 
 .form-check-input:focus {
   border-color: #919d82;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #79836c55;
+  box-shadow: 0 0 0 0.25rem #CD736355;
 }
 
 .form-control:focus {
   border-color: #919d82;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #79836c55;
+  box-shadow: 0 0 0 0.25rem #CD736355;
 }
 
 nav {
@@ -43,21 +51,31 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 10px;
   padding: 10px 50px;
+}
+
+nav .logo a {
+  color: #f9f1df;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #f9f1df;
 }
 
 nav .pages {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 15px;
 }
 
-nav a {
+nav .pages a {
   color: #f9f1df;
   text-decoration: none;
-  font-weight: bold;
-  font-size: 1.2rem;
-  padding: 5px 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  padding: 5px 18px;
 }
 
 nav a.active {
@@ -67,6 +85,19 @@ nav a.active {
 
 @media (max-width: 578px) {
   nav {
-    padding: 10px 20px;
+    padding: 10px 15px;
+  }
+
+  nav .logo a {
+    font-size: 1.5rem;
+  }
+
+  nav .pages {
+    gap: 8px;
+  }
+
+  nav .pages a {
+    font-size: 0.95rem;
+    padding: 5px 8px;
   }
 }
