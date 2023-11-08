@@ -22,35 +22,72 @@ $(document).ready(function () {
         $cropperModal.css('display', 'none');
     });
 
+    $('#BackToIndex').on('click', function (e) {
+        e.preventDefault();
+
+        // 清空內容
+        $('#UploadInfo').show();
+        // 顯示 #Table
+        $('#Table').hide();
+    })
+
     // 绑定查詢按钮的点击事件
     $('.searchBtnWrap button').on('click', function (e) {
         e.preventDefault();
 
         // 清空內容
-        $('.container').html('');
+        $('#UploadInfo').hide();
+        // 顯示 #Table
+        $('.tableArea').empty();
+        $('#Table').show();
 
-        // 創建表格
-        const table = $('<table class="result-table"></table>');
+        // 創建容器 div
+        const containerDiv = $('<div class="result-container"></div>');
 
         const headers = ["Header1", "Header2", "Header3"]; // 替換Headers
-        const headerRow = $('<tr></tr>');
+
+        // 創建表頭區域
+        const headerDiv = $('<div class="header-row"></div>');
         headers.forEach(headerText => {
-            const th = $('<th></th>').text(headerText);
-            headerRow.append(th);
+            const headerCell = $('<div class="header-cell"></div>').text(headerText);
+            headerDiv.append(headerCell);
         });
-        table.append(headerRow);
 
-        // TODO: API
+        // 將表頭區域添加到容器 div
+        containerDiv.append(headerDiv);
 
-        const newRow = $('<tr></tr>');
-        const cell1 = $('<td></td>').text("Data1");
-        const cell2 = $('<td></td>').text("Data2");
-        const cell3 = $('<td></td>').text("Data3");
-        newRow.append(cell1, cell2, cell3);
-        table.append(newRow);
+        // TODO: 處理 API 數據，用迴圈添加數據行
+        const apiData = [
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"],
+            ["Data1", "Data2", "Data3"]
+            // 添加更多數據行...
+        ];
 
-        $('.container').append(table);
+        apiData.forEach(dataRow => {
+            const dataRowDiv = $('<div class="data-row"></div>');
+
+            dataRow.forEach(cellText => {
+                const dataCell = $('<div class="data-cell"></div').text(cellText);
+                dataRowDiv.append(dataCell);
+            });
+
+            // 將數據行添加到容器 div
+            containerDiv.append(dataRowDiv);
+        });
+
+        // 將容器 div 添加到容器元素
+        $('.tableArea').append(containerDiv);
     });
+
 
     function openCropper(inputElement, previewId, imageContainerId) {
         const file = inputElement.files[0];

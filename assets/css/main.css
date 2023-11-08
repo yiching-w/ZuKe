@@ -1,7 +1,7 @@
 .btn-primary {
   --bs-btn-color: #fff;
-  --bs-btn-bg: #CD7363;
-  --bs-btn-border-color: #CD7363;
+  --bs-btn-bg: #cd7363;
+  --bs-btn-border-color: #cd7363;
   --bs-btn-hover-color: #fff;
   --bs-btn-hover-bg: #b45949;
   --bs-btn-hover-border-color: #b45949;
@@ -11,8 +11,28 @@
   --bs-btn-active-border-color: #b45949;
   --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
   --bs-btn-disabled-color: #fff;
-  --bs-btn-disabled-bg: #CD7363;
-  --bs-btn-disabled-border-color: #CD7363;
+  --bs-btn-disabled-bg: #cd7363;
+  --bs-btn-disabled-border-color: #cd7363;
+  color: #f9f1df;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.btn-secondary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #535c48;
+  --bs-btn-border-color: #535c48;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #3b4233;
+  --bs-btn-hover-border-color: #3b4233;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #3b4233;
+  --bs-btn-active-border-color: #3b4233;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #535c48;
+  --bs-btn-disabled-border-color: #535c48;
   color: #f9f1df;
   font-size: 1.2rem;
   font-weight: 600;
@@ -27,20 +47,20 @@ body {
 }
 
 .form-check-input:checked {
-  background-color: #CD7363;
-  border-color: #CD7363;
+  background-color: #cd7363;
+  border-color: #cd7363;
 }
 
 .form-check-input:focus {
   border-color: #919d82;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #CD736355;
+  box-shadow: 0 0 0 0.25rem #cd736355;
 }
 
 .form-control:focus {
   border-color: #919d82;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem #CD736355;
+  box-shadow: 0 0 0 0.25rem #cd736355;
 }
 
 nav {

@@ -24,38 +24,48 @@
         </div>
     </nav>
     <div class="container">
-        <form>
-            <div class="form-group">
-                <label for="identity">身分證字號</label>
-                <input type="text" class="form-control" id="identity">
-            </div>
-            <div class="form-group">
-                <label for="name">姓名</label>
-                <input type="text" class="form-control" id="name">
-            </div>
-            <div class="form-group">
-                <label for="birthday">生日</label>
-                <input type="text" class="form-control" id="birthday">
-            </div>
-
-            <div class="row">
-                <div class="col-md-6">
-                    <label for="UploadFrontImage">身分證正面</label>
-                    <label id="FrontImagePreview" for="UploadFrontImage"
-                        class="image-preview"><span>+</span>點擊上傳</label>
-                    <input type="file" id="UploadFrontImage" accept="image/*" class="d-none">
+        <div id="UploadInfo">
+            <form>
+                <div class="form-group">
+                    <label for="identity">身分證字號</label>
+                    <input type="text" class="form-control" id="identity">
                 </div>
-                <div class="col-md-6 mt-3 mt-md-0">
-                    <label for="UploadBackImage">身分證反面</label>
-                    <label id="BackImagePreview" for="UploadBackImage" class="image-preview"><span>+</span>點擊上傳</label>
-                    <input type="file" id="UploadBackImage" accept="image/*" class="d-none">
+                <div class="form-group">
+                    <label for="name">姓名</label>
+                    <input type="text" class="form-control" id="name">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="birthday">生日</label>
+                    <input type="text" class="form-control" id="birthday">
+                </div>
 
-            <div class="searchBtnWrap">
-                <button class="btn btn-primary">查詢</button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="UploadFrontImage">身分證正面</label>
+                        <label id="FrontImagePreview" for="UploadFrontImage"
+                            class="image-preview"><span>+</span>點擊上傳</label>
+                        <input type="file" id="UploadFrontImage" accept="image/*" class="d-none">
+                    </div>
+                    <div class="col-md-6 mt-3 mt-md-0">
+                        <label for="UploadBackImage">身分證反面</label>
+                        <label id="BackImagePreview" for="UploadBackImage"
+                            class="image-preview"><span>+</span>點擊上傳</label>
+                        <input type="file" id="UploadBackImage" accept="image/*" class="d-none">
+                    </div>
+                </div>
+
+                <div class="searchBtnWrap">
+                    <button class="btn btn-primary">查詢</button>
+                </div>
+            </form>
+        </div>
+        <div id="Table">
+            <div class="tableArea"></div>
+            <div class="tableBtns">
+                <button class="btn btn-secondary" id="BackToIndex">回首頁</button>
+                <button class="btn btn-primary" id="CreateBlacklist">建立黑名單</button>
             </div>
-        </form>
+        </div>
     </div>
 
     <div class="modal" id="cropperModal">
