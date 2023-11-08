@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>首頁</title>
     <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/index.css">
@@ -34,32 +35,45 @@
             </div>
             <div class="form-group">
                 <label for="birthday">生日</label>
-                <input type="date" class="form-control" id="birthday">
+                <input type="text" class="form-control" id="birthday">
             </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="UploadFrontImage">身分證正面</label>
+                    <label id="FrontImagePreview" for="UploadFrontImage"
+                        class="image-preview"><span>+</span>點擊上傳</label>
+                    <input type="file" id="UploadFrontImage" accept="image/*" class="d-none">
+                </div>
+                <div class="col-md-6 mt-3 mt-md-0">
+                    <label for="UploadBackImage">身分證反面</label>
+                    <label id="BackImagePreview" for="UploadBackImage" class="image-preview"><span>+</span>點擊上傳</label>
+                    <input type="file" id="UploadBackImage" accept="image/*" class="d-none">
+                </div>
+            </div>
+
             <div class="searchBtnWrap">
                 <button class="btn btn-primary">查詢</button>
             </div>
-
-            <h1>上传和裁剪图像</h1>
-            <input type="file" id="imageInput" accept="image/*">
         </form>
     </div>
 
-    <div class="modal fade" id="imageCropModal" tabindex="-1" role="dialog" aria-labelledby="imageCropModalLabel"
-        aria-hidden="true">
+    <div class="modal" id="cropperModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-                    <img id="imagePreview" class="preview" src="" alt="预览图像">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" id="cropButton">裁剪</button>
+                    <div id="imageToCrop" class="cropper-container"></div>
+                    <div class="btnWrap">
+                        <button class="btn btn-secondary" id="Close">關閉</button>
+                        <button class="btn btn-primary" id="cropImage">裁切</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
     <script src="assets/libs/jquery.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.js"></script>
     <script src="assets/js/script.js"></script>
     <script src="assets/js/index.js"></script>
