@@ -46,6 +46,11 @@ body {
   background-color: #e3d0c4;
 }
 
+.container {
+  margin: 80px auto 50px;
+  max-width: 800px;
+}
+
 .form-check-input:checked {
   background-color: #cd7363;
   border-color: #cd7363;
@@ -119,5 +124,60 @@ nav a.active {
   nav .pages a {
     font-size: 0.95rem;
     padding: 5px 8px;
+  }
+}
+
+/* 表格 */
+.result-container {
+  display: block;
+  border: 1px solid #888;
+  border-radius: 20px;
+}
+
+.header-row {
+  display: flex;
+  color: #555;
+  border-bottom: 1px solid #888;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 17px 17px 0 0;
+  font-size: 1.2rem;
+}
+
+.data-row {
+  display: flex;
+  padding: 10px;
+}
+
+.header-cell,
+.data-cell {
+  flex: 1;
+  padding: 5px;
+}
+
+.data-row:nth-child(even) {
+  background-color: #f9f1df;
+}
+
+.data-row:last-of-type {
+  border-radius: 0 0 20px 20px;
+}
+
+.tableBtns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.tableBtns .btn {
+  flex: 1;
+  margin: 0;
+}
+
+@media (max-width: 578px) {
+  .header-row {
+    font-size: 1.05rem;
   }
 }
