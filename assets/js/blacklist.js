@@ -42,7 +42,7 @@ $(document).ready(function () {
             });
 
             dataRowDiv.on('click', () => {
-                window.location.href = '/detail.html';
+                window.location.href = 'detail.html';
             });
 
             // 將數據行添加到容器 div
