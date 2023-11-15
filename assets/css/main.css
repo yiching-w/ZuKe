@@ -135,24 +135,25 @@ nav a.active {
 }
 
 .header-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   color: #555;
   border-bottom: 1px solid #888;
   font-weight: bold;
-  padding: 10px;
   border-radius: 17px 17px 0 0;
   font-size: 1.2rem;
 }
 
 .data-row {
-  display: flex;
-  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .header-cell,
 .data-cell {
-  flex: 1;
-  padding: 5px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
 }
 
 .data-row:nth-child(even) {
@@ -179,5 +180,9 @@ nav a.active {
 @media (max-width: 578px) {
   .header-row {
     font-size: 1.05rem;
+  }
+  .header-cell,
+  .data-cell {
+    padding: 10px;
   }
 }

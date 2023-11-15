@@ -34,11 +34,15 @@ $(document).ready(function () {
         ];
 
         apiData.forEach(dataRow => {
-            const dataRowDiv = $('<div class="data-row"></div>');
+            const dataRowDiv = $('<div class="data-row" style="cursor:pointer;"></div>');
 
             dataRow.forEach(cellText => {
                 const dataCell = $('<div class="data-cell"></div').text(cellText);
                 dataRowDiv.append(dataCell);
+            });
+
+            dataRowDiv.on('click', () => {
+                window.location.href = '/detail.html';
             });
 
             // 將數據行添加到容器 div

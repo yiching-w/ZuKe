@@ -1,0 +1,63 @@
+/* TABLE */
+.header-row,
+.data-row {
+  grid-template-columns: 150px 1fr 1fr;
+}
+
+.data-row:not(:last-child) {
+  border-bottom: 1px solid #888;
+}
+
+.header-cell:not(:last-child),
+.data-cell:not(:last-child) {
+  border-right: 1px solid #888;
+}
+
+.data-cell:first-child {
+  font-weight: bold;
+}
+
+.data-row.rowspan-2 {
+  grid-template-columns: 150px auto;
+}
+
+.child-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.child-row:nth-child(even) {
+  background-color: #f9f1df;
+}
+
+.child-row.result {
+  grid-template-columns: 1fr;
+}
+
+.child-row .child-cell {
+  padding: 15px;
+}
+
+.child-row .child-cell:not(:last-child) {
+  border-right: 1px solid #888;
+}
+
+.child-row:not(:last-child) .child-cell {
+  border-bottom: 1px solid #888;
+}
+
+.child-row.result .child-cell {
+  text-align: center;
+  background-color: #cd736355;
+  border-radius: 0 0 18px 0;
+}
+
+@media (max-width: 578px) {
+  .header-row,
+  .data-row {
+    grid-template-columns: 110px 1fr 1fr;
+  }
+  .data-row.rowspan-2 {
+    grid-template-columns: 110px auto;
+  }
+}

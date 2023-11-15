@@ -121,7 +121,3 @@ label.image-preview span {
 #Table {
   display: none;
 }
-
-.data-row .child {
-  display: flex;
-}
