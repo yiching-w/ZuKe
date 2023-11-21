@@ -1,8 +1,11 @@
 $(document).ready(function () {
+    const apiUrl = 'http://172.105.219.68';
+
     $("#birthday").datepicker({
         dateFormat: "yy-mm-dd",
         changeMonth: true,
-        changeYear: true
+        changeYear: true,
+        yearRange: 'c-100:c+0',
     });
 
     let cropperInstances = {};
@@ -22,27 +25,44 @@ $(document).ready(function () {
         $cropperModal.css('display', 'none');
     });
 
-    $('#BackToIndex').on('click', function (e) {
-        e.preventDefault();
-
-        // 清空內容
-        $('#UploadInfo').show();
-        // 顯示 #Table
-        $('#Table').hide();
-    })
-
-    // 绑定查詢按钮的点击事件
     $('.searchBtnWrap button').on('click', function (e) {
         e.preventDefault();
 
-        // 清空內容
-        $('#UploadInfo').hide();
-        $('#Table').show();
+        let name = $('#name').val();
+        let birthday = $('#birthday').val();
+        let identity = $('#identity').val();
+
+        if (name.trim() == '' || birthday == '' || identity == '') {
+            alert('請填寫完整資訊');
+            return;
+        }
+
+        $.ajax({
+            url: `${apiUrl}/api/upload`,
+            type: 'POST',
+            contentType: 'application/json; charset=utf-8',
+            data: JSON.stringify({
+                name: $('#name').val(),
+                birthday: $('#birthday').val(),
+                identity_id: $('#identity').val(),
+            }),
+            success: function (data) {
+                alert('建立成功');
+                setTimeout(function () {
+                    location.href = 'records.html';
+                }, 200)
+            },
+            error: function (xhr, status, error) {
+                console.error('Error: ' + status, error);
+            }
+        });
     });
 
 
     function openCropper(inputElement, previewId, imageContainerId) {
         const file = inputElement.files[0];
+        let formData = new FormData();
+        formData.append("file", file);
         if (file) {
             $cropperModal.css('display', 'flex');
 
@@ -58,7 +78,7 @@ $(document).ready(function () {
 
             // 初始化 Cropper.js
             cropperInstances[previewId] = new Cropper($image[0], {
-                viewMode: 1
+                viewMode: 0
             });
 
             // 點擊裁切
@@ -70,26 +90,49 @@ $(document).ready(function () {
                 $cropperModal.css('display', 'none');
                 $preview.find('b').hide();
 
+                ShowLoading();
+                $.ajax({
+                    url: `${apiUrl}/api/ocr`,
+                    type: 'POST',
+                    data: formData,
+                    processData: false,
+                    contentType: false,
+                    success: function (res) {
+                        if (res.status) {
+                            const { id, name, birthday } = res.message.message;
+                            $('#identity').val(id);
+                            $('#name').val(name);
+                            $('#birthday').val(birthday);
+                            HideLoading();
+                        }
+                    },
+                    error: function (error) {
+                        console.error(error);
+                    }
+                });
+
                 // cropperInstances[previewId].destroy();
             });
         }
     }
 
-
-    UpdateInputState();
-    $('input[name="identityType"]').change(function () {
-        UpdateInputState();
-    });
-
-    function UpdateInputState() {
-        if ($('#inputIdentity').prop('checked')) {
-            $('#identity, #name, #birthday').prop('disabled', false);
-            $('#UploadFrontImage, #UploadBackImage').prop('disabled', true);
-            $('#FrontImagePreview, #BackImagePreview').addClass('disabled');
-        } else {
-            $('#identity, #name, #birthday').prop('disabled', true);
-            $('#UploadFrontImage, #UploadBackImage').prop('disabled', false);
-            $('#FrontImagePreview, #BackImagePreview').removeClass('disabled');
+    function dataURItoBlob(dataURI) {
+        const byteString = atob(dataURI.split(',')[1]);
+        const mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+        const ab = new ArrayBuffer(byteString.length);
+        const ia = new Uint8Array(ab);
+        for (let i = 0; i < byteString.length; i++) {
+            ia[i] = byteString.charCodeAt(i);
         }
+        return new Blob([ab], { type: mimeString });
     }
+
+    function ShowLoading() {
+        $('.loading-overlay').css('display', 'flex');
+    }
+
+    function HideLoading() {
+        $('.loading-overlay').hide();
+    }
+
 });

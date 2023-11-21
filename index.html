@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cropperjs@1.5.11/dist/cropper.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/index.css">
-    <link rel="stylesheet" href="assets/css/detail.css">
 </head>
 
 <body>
@@ -27,19 +26,6 @@
     <div class="container">
         <div id="UploadInfo">
             <form>
-                <div class="form-group">
-                    <label>身分驗證方式</label>
-                    <div class=" identityRadio">
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="inputIdentity" name="identityType" checked>
-                            <label class="form-check-label" for="inputIdentity">自行輸入</label>
-                        </div>
-                        <div class="form-check">
-                            <input type="radio" class="form-check-input" id="uploadIdentity" name="identityType">
-                            <label class="form-check-label" for="uploadIdentity">上傳證件</label>
-                        </div>
-                    </div>
-                </div>
                 <div class="form-group">
                     <label for="identity">身分證字號</label>
                     <input type="text" class="form-control" id="identity">
@@ -60,12 +46,12 @@
                             class="image-preview"><b><span>+</span>點擊上傳</b></label>
                         <input type="file" id="UploadFrontImage" accept="image/*" class="d-none">
                     </div>
-                    <div class="col-md-6 mt-3 mt-md-0">
+                    <!--<div class="col-md-6 mt-3 mt-md-0">
                         <label for="UploadBackImage">身分證反面</label>
                         <label id="BackImagePreview" for="UploadBackImage"
                             class="image-preview"><b><span>+</span>點擊上傳</b></label>
                         <input type="file" id="UploadBackImage" accept="image/*" class="d-none">
-                    </div>
+                    </div>-->
                 </div>
 
                 <div class="searchBtnWrap">
@@ -73,84 +59,10 @@
                 </div>
             </form>
         </div>
-        <div id="Table">
-            <div class="tableArea">
-                <div class="result-container">
-                    <div class="header-row">
-                        <div class="header-cell">標題</div>
-                        <div class="header-cell">項目</div>
-                        <div class="header-cell">查詢結果</div>
-                    </div>
-                    <div class="data-row">
-                        <div class="data-cell">被查詢人</div>
-                        <div class="data-cell">XXXX</div>
-                        <div class="data-cell">XXXX</div>
-                    </div>
-                    <div class="data-row rowspan-2">
-                        <div class="data-cell">犯罪紀錄</div>
-                        <div>
-                            <div class="child-row">
-                                <div class="child-cell">通緝要犯</div>
-                                <div class="child-cell">無符合</div>
-                            </div>
-                            <div class="child-row">
-                                <div class="child-cell">查捕中要犯</div>
-                                <div class="child-cell">查無資料</div>
-                            </div>
-                            <div class="child-row">
-                                <div class="child-cell">查緝專刊</div>
-                                <div class="child-cell">查無資料</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="data-row">
-                        <div class="data-cell">行為能力</div>
-                        <div class="data-cell">監護輔助</div>
-                        <div class="data-cell">查無資料</div>
-                    </div>
-                    <div class="data-row rowspan-2">
-                        <div class="data-cell">欠債紀錄</div>
-                        <div>
-                            <div class="child-row">
-                                <div class="child-cell">交通罰緩</div>
-                                <div class="child-cell">無欠費</div>
-                            </div>
-                            <div class="child-row">
-                                <div class="child-cell">汽機車燃料稅</div>
-                                <div class="child-cell">無欠稅</div>
-                            </div>
-                            <div class="child-row">
-                                <div class="child-cell">消債事件</div>
-                                <div class="child-cell">查無資料</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="data-row">
-                        <div class="data-cell">公司內部黑名單</div>
-                        <div class="data-cell">有/無</div>
-                        <div class="data-cell">無</div>
-                    </div>
-                    <div class="data-row">
-                        <div class="data-cell">黑名單</div>
-                        <div class="data-cell">法源網</div>
-                        <div class="data-cell">(疑似)妨害性自主</div>
-                    </div>
-                    <div class="data-row rowspan-2">
-                        <div class="data-cell">綜合評分</div>
-                        <div class="child-row result">
-                            <div class="child-cell">
-                                <h5>請審慎評估</h5>
-                                <div>(疑似)109/04利用駕駛供不特定人運輸之交通工具之機會犯強制猥褻罪，處有期徒刑3年6個月</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tableBtns">
-                <button class="btn btn-secondary" id="BackToIndex">回首頁</button>
-                <button class="btn btn-primary" id="CreateBlacklist">建立黑名單</button>
-            </div>
-        </div>
+    </div>
+
+    <div class="loading-overlay">
+        <div class="loading-spinner"></div>
     </div>
 
     <div class="modal" id="cropperModal">

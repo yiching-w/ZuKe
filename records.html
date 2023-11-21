@@ -6,7 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>查詢紀錄</title>
     <link href="assets/libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/list.css">
+    <link rel="stylesheet" href="assets/css/detail.css">
 </head>
 
 <body>
@@ -21,8 +26,99 @@
         </div>
     </nav>
     <div class="container">
-        <div id="Table">
-            <div class="tableArea"></div>
+        <div id="List">
+            <div class="tableArea">
+                <div class="result-container">
+                    <div class="header-row">
+                        <div class="header-cell">名字</div>
+                        <div class="header-cell">身分字號</div>
+                        <div class="header-cell">生日</div>
+                        <div class="header-cell">是否黑名單</div>
+                        <div class="header-cell">處理狀態</div>
+                        <div class="header-cell">刪除</div>
+                    </div>
+                    <div class="content"></div>
+                </div>
+                <div class="pageBtn"></div>
+            </div>
+        </div>
+        <div id="Detail">
+            <div class="tableArea">
+                <div class="result-container">
+                    <div class="header-row">
+                        <div class="header-cell">標題</div>
+                        <div class="header-cell">項目</div>
+                        <div class="header-cell">查詢結果</div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-cell">被查詢人</div>
+                        <div class="data-cell name"></div>
+                        <div class="data-cell identity"></div>
+                    </div>
+                    <div class="data-row rowspan-2">
+                        <div class="data-cell">犯罪紀錄</div>
+                        <div>
+                            <div class="child-row">
+                                <div class="child-cell">通緝要犯</div>
+                                <div class="child-cell" data-title="通緝要犯"></div>
+                            </div>
+                            <div class="child-row">
+                                <div class="child-cell">查捕中逃犯</div>
+                                <div class="child-cell" data-title="查捕中逃犯"></div>
+                            </div>
+                            <div class="child-row">
+                                <div class="child-cell">查緝專刊</div>
+                                <div class="child-cell" data-title="查緝專刊">查無資料</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-cell">行為能力</div>
+                        <div class="data-cell">監護輔助</div>
+                        <div class="data-cell">查無資料</div>
+                    </div>
+                    <div class="data-row rowspan-2">
+                        <div class="data-cell">欠債紀錄</div>
+                        <div>
+                            <div class="child-row">
+                                <div class="child-cell">交通罰緩</div>
+                                <div class="child-cell" data-title="交通罰緩"></div>
+                            </div>
+                            <div class="child-row">
+                                <div class="child-cell">汽車燃料稅</div>
+                                <div class="child-cell" data-title="汽車燃料稅"></div>
+                            </div>
+                            <div class="child-row">
+                                <div class="child-cell">消債事件</div>
+                                <div class="child-cell" data-title="消債事件"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-cell">公司內部黑名單</div>
+                        <div class="data-cell">有/無</div>
+                        <div class="data-cell" data-title="公司內部黑名單"></div>
+                    </div>
+                    <div class="data-row">
+                        <div class="data-cell">黑名單</div>
+                        <div class="data-cell">法源網</div>
+                        <div class="data-cell" data-title="黑名單"></div>
+                    </div>
+                    <div class="data-row rowspan-2">
+                        <div class="data-cell">綜合評分</div>
+                        <div class="child-row result">
+                            <div class="child-cell">
+                                <div data-title="總和評分"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tableBtns">
+                <button class="btn btn-primary" id="CreateBlacklist">建立黑名單</button>
+                <button class="btn btn-primary" id="DeletePpl">刪除</button>
+            </div>
+            <button class="btn btn-secondary mt-3 w-100" id="BackToIndex">回首頁</button>
         </div>
     </div>
     <script src="assets/libs/jquery.min.js"></script>
